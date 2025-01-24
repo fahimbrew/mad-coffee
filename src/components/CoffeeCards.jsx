@@ -21,7 +21,7 @@ const CoffeeCards = () => {
       setLoader(false);
     }
   }, [data, category]);
-  console.log(data);
+  //   console.log(data);
   return (
     <div className="my-10">
       <h3 className="text-xl my-5 font-black">Coffee</h3>

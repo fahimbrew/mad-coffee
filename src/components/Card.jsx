@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ coffee }) => {
   //   console.log(coffee);
-  const { image, name, description, rating, popularity } = coffee;
+  const { image, name, description, rating, popularity, id } = coffee;
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm">
@@ -17,7 +17,7 @@ const Card = ({ coffee }) => {
           <p className=" font-semibold">Popular: {popularity}</p>
           <div className="card-actions">
             <button className="btn bg-rose-600 text-white">
-              <Link>View</Link>
+              <Link to={`/${id}`}>View</Link>
             </button>
           </div>
         </div>
