@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { IoTrashBinSharp } from "react-icons/io5";
 
-const Card = ({ coffee }) => {
+const Card = ({ coffee, handleRemove }) => {
   //   console.log(coffee);
+  const { pathname } = useLocation();
+  console.log(location);
   const { image, name, description, rating, popularity, id } = coffee;
   return (
-    <div>
+    <div className="relative">
       <div className="card bg-base-100 w-96 shadow-sm">
         <figure className="px-10 pt-10">
           <img src={image} alt="" className="rounded-xl h-80 object-cover" />
@@ -22,6 +25,16 @@ const Card = ({ coffee }) => {
           </div>
         </div>
       </div>
+      {pathname === "/dashboard" && (
+        <div className="absolute top-0 left-0">
+          <button
+            onClick={() => handleRemove(id)}
+            className="btn rounded-full bg-rose-500 text-2xl"
+          >
+            <IoTrashBinSharp />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
